@@ -17,14 +17,28 @@ html {
 }
 
 body {
-  font: 400 2.2rem/1.6 $text-font;
+  font: 400 1.8rem/1.6 $text-font;
   min-height: 100%;
   color: $text-color;
 }
-.container{
+
+.container {
   background-color: #ffffff;
   margin: 0 auto;
+}
+
+.title {
   text-align: center;
+  text-transform: uppercase;
+  span {
+    font-weight: 600;
+    color: #303030;
+  }
+  h1 {
+    font-size: 8.6rem;
+    line-height: 1;
+    margin: 20px 0;
+  }
 }
 
 
