@@ -1,4 +1,5 @@
 @import '_normalize';
+@import '_slick';
 
 $text-font: 'Poppins', sans-serif;
 $text-color: #000;
@@ -25,11 +26,14 @@ body {
 .container {
   background-color: #ffffff;
   margin: 0 auto;
+  //height: 100vh;
 }
 
 .title {
   text-align: center;
   text-transform: uppercase;
+  padding: 50px 0 100px 0;
+  position: relative;
   span {
     font-weight: 600;
     color: #303030;
@@ -37,35 +41,124 @@ body {
   h1 {
     font-size: 8.6rem;
     line-height: 1;
-    margin: 20px 0;
+    margin-top: 20px;
+    min-height: 240px;
+    overflow: hidden;
+
+  }
+  &:before {
+    content: url('data:image/svg+xml;utf8, <svg
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="61px" height="61px">
+<path fill-rule="evenodd"  stroke-width="6px" stroke="rgb(233, 132, 87)" fill="rgb(255, 255, 255)"
+ d="M9.000,9.000 L53.000,19.000 L19.000,53.000 L9.000,9.000 Z"/>
+</svg>');
+    position: absolute;
+    top: 200px;
+    left: 50px;
+  }
+  &:after {
+    content: url('data:image/svg+xml;utf8, <svg
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="30px" height="30px">
+<path fill-rule="evenodd"  fill="rgb(233, 132, 87)"
+ d="M30.000,18.000 L18.000,18.000 L18.000,30.000 L12.000,30.000 L12.000,18.000 L-0.000,18.000 L-0.000,12.000 L12.000,12.000 L12.000,-0.000 L18.000,-0.000 L18.000,12.000 L30.000,12.000 L30.000,18.000 Z"/>
+</svg>');
+    position: absolute;
+    top: 20px;
+    right: 250px;
   }
 }
 
-.slide {
-  image {
+.slider {
+  //display: flex;
+  position: relative;
+  padding-left: 50px;
+}
+
+.image {
+  text-align: center;
+  width: 440px;
+  height: 400px;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  margin-left: 5vh;
+  background-color: #e1e1e9;
+  .image-hover {
+    background-color: rgba(27, 241, 173, 0.5);
+    position: relative;
+    z-index: 100;
     width: 440px;
     height: 400px;
-    overflow: hidden;
-    position: relative;
-    display: block;
-    .image-hover {
-      background-color: rgba(27, 241, 173, 0.7);
-      position: relative;
-      &-text {
-        position: absolute;
-      }
-    }
-    img {
-      position: absolute;
-      min-width: 100%;
-      min-height: 100%;
-    }
   }
 
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .text {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 290px;
+    bottom: 0;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-align: left;
+    z-index: 200;
+    h2 {
+      font-size: 2.8rem;
+      line-height: 1;
+      margin: 0;
+      min-height: 50px;
+      overflow: hidden;
+      //margin-bottom: 15px;
+    }
+    span {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
 }
 
+.slick-arrow {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 50%;
+  font-size: 0;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA%2FPjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI%2BPHBhdGggZD0iTTE3LjE3IDMyLjkybDkuMTctOS4xNy05LjE3LTkuMTcgMi44My0yLjgzIDEyIDEyLTEyIDEyeiIvPjxwYXRoIGQ9Ik0wLS4yNWg0OHY0OGgtNDh6IiBmaWxsPSJub25lIi8%2BPC9zdmc%2B);
+  background-position: center;
+  background-repeat: no-repeat;
+  outline: none;
+  transition: all .4s ease;
+  z-index: 1000;
+  &:hover,
+  &:focus {
+    background-color: rgb(27, 241, 173);
+    cursor: pointer;
+    //transform: scale(1.2);
+  }
+}
 
+.slick-next {
+  right: 20px;
+}
 
+.slick-prev {
+  left: 20px;
+  transform: rotate(180deg);
+}
 
 
 

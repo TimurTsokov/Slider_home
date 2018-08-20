@@ -12,6 +12,7 @@ gulp.task('serve', ['sass'], function() {
 
 	 gulp.watch("scss/*.scss", ['sass']);
 	 gulp.watch("*.html").on('change', browserSync.reload);
+    gulp.watch("js/*.js").on('change', browserSync.reload);
 });
 gulp.task('sass', function() {
 	 return gulp.src("scss/*.scss")
